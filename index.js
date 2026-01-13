@@ -9,7 +9,7 @@ const client = new Client({
 
 // 🔧 CONFIG
 const EVENT_CHANNEL_ID = '1456593469207347282';
-const BOT_TOKEN = 'client.login(process.env.DISCORD_TOKEN);';
+const BOT_TOKEN = process.env.DISCORD_TOKEN;
 
 client.once(Events.ClientReady, () => {
   console.log(`✅ Logged in as ${client.user.tag}`);
@@ -38,3 +38,4 @@ client.on(Events.GuildScheduledEventCreate, async (event) => {
 });
 
 client.login(BOT_TOKEN);
+
