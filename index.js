@@ -1,4 +1,5 @@
 const { Client, GatewayIntentBits, Events } = require('discord.js');
+const express = require('express');  // <-- Import express
 
 const client = new Client({
   intents: [
@@ -39,3 +40,14 @@ client.on(Events.GuildScheduledEventCreate, async (event) => {
 
 client.login(BOT_TOKEN);
 
+// === EXPRESS SERVER SETUP ===
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('Bot is running!');
+});
+
+app.listen(PORT, () => {
+  console.log(`Express server listening on port ${PORT}`);
+});
